@@ -1,0 +1,106 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    color: white;
+}
+
+.timer-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+body {
+    background: #1D1B26;
+  }
+  .timer-box > button {
+    color: white;
+    position: relative;
+    padding: 15px 30px;
+    border: 1px solid transparent;
+    margin: 10px 20px;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: 2px;
+    transition: .8s cubic-bezier(.165, .84, .44, 1);
+    background: transparent;
+  }
+
+  .timer-box > button:enabled {
+    border: 1px solid;
+    border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+    border-image-slice: 1;
+  }
+
+  .timer-box > button:enabled:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 100%;
+    z-index: -1;
+    color: white;
+    background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+    transition: .8s cubic-bezier(.165, .84, .44, 1);
+  }
+
+  .timer-box > button:enabled:hover {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  .timer-box > button:enabled:hover:before {
+    bottom: 0%;
+    top: auto;
+    height: 100%;
+  }
+
+#datetime-picker {
+    padding: 5px 10px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+#datetime-picker:enabled {
+    border: 1px solid;
+    border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+    border-image-slice: 1;
+}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+
+.value {
+    font-size: 20px;
+}
+
+.label {
+    font-size: 14px;
+    background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: table;
+}
