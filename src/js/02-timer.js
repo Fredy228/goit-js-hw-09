@@ -2,6 +2,9 @@
 import flatpickr from 'flatpickr';
 // Дополнительный импорт стилей
 import 'flatpickr/dist/flatpickr.min.css';
+// Notification
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import 'notiflix/dist/notiflix-3.2.5.min.css';
 
 const refs = {
   startBtn: document.querySelector('[data-start]'),
@@ -24,8 +27,9 @@ flatpickr('#datetime-picker', {
     if (Date.now() < Date.parse(selectedDates[0])) {
       refs.startBtn.disabled = false;
       selectedDate = Date.parse(selectedDates[0]);
+      Notify.success('Time is set');
     } else {
-      window.alert('Please choose a date in the future');
+      Notify.failure('Please choose a date in the future');
       refs.startBtn.disabled = true;
     }
   },
@@ -45,6 +49,7 @@ function timerStart() {
     if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
       clearInterval(timerId);
       refs.datetimePicker.disabled = false;
+      Notify.info('Time is over');
     }
 
     refs.dataDays.textContent = addLeadingZero(days);
